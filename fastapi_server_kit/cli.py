@@ -92,7 +92,7 @@ def main():
     db_url = db_urls[db_choice_type]
 
     # List of files/dirs to copy
-    to_copy = ["app", "tests", ".env_example", "README.md", "pyproject.toml"]
+    to_copy = ["app", "tests", ".env_example", "pyproject.toml"]
 
     try:
         print(f"\n🛠️  Scaffolding {project_name} into {dest}...")
@@ -118,6 +118,39 @@ def main():
                 if src_path.name == "pyproject.toml.template":
                     target_name = "pyproject.toml"
                 shutil.copy2(src_path, dest / target_name)
+
+        # Generate a project-specific README
+        readme_content = f"""# {project_name}
+
+Built with [FastAPI Server Kit](https://pypi.org/project/fastapi-server-kit/).
+
+## Getting Started
+
+```bash
+# Install dependencies
+uv sync
+
+# Run the development server
+uv run uvicorn app.main:app --reload
+```
+
+## Project Structure
+
+```text
+{project_name}/
+├── app/
+│   ├── core/          # Configuration and security
+│   ├── models/        # SQLAlchemy models
+│   ├── repositories/  # Data access layer
+│   ├── routers/       # API endpoints
+│   ├── schemas/       # Pydantic models
+│   └── services/      # Business logic
+└── tests/             # Unit and integration tests
+```
+"""
+        with open(dest / "README.md", "w") as f:
+            f.write(readme_content)
+
 
         # 3. Configure .env based on DB choice
         env_path = dest / ".env"
