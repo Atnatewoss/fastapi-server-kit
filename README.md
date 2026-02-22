@@ -2,7 +2,7 @@
 
 A production-grade FastAPI template and toolkit with support for PostgreSQL (Sync/Async), SQLite (Async), and MySQL (Async). Built for speed, scalability, and clean architecture.
 
-## 🚀 Features
+## Features
 
 - **Multi-Database Support**: Easily switch between SQLite, PostgreSQL, and MySQL.
 - **SQLAlchemy 2.0 (Async)**: Modern ORM patterns with centralized session management.
@@ -10,7 +10,7 @@ A production-grade FastAPI template and toolkit with support for PostgreSQL (Syn
 - **Alembic Migrations**: Ready-to-use async migration setup.
 - **Environment Management**: Robust configuration using `pydantic-settings`.
 
-## 📦 Installation
+## Installation
 
 You can install `fastapi-server-kit` using `uv` (recommended) or `pip`:
 
@@ -20,7 +20,7 @@ uv add fastapi-server-kit
 pip install fastapi-server-kit
 ```
 
-## 🛠️ Quick Start (CLI)
+## Quick Start (CLI)
 
 The easiest way to start a new project is to use the built-in CLI tool:
 
@@ -31,7 +31,7 @@ fastapi-server-kit
 
 This will create a `server/` directory with the complete production-ready structure.
 
-## 🛠️ Manual Setup
+## Manual Setup
 If you prefer to clone the repository or use it as a template:
 
 ```bash
@@ -56,7 +56,7 @@ uv sync
 uv run uvicorn fastapi_server_kit.server.app.main:app --reload
 ```
 
-## 📂 Project Structure
+## Project Structure
 
 The kit follows a structured directory layout within the `server` package:
 
@@ -72,7 +72,7 @@ fastapi_server_kit/
         └── services/      # Business logic
 ```
 
-## 🗄️ Database Migrations
+## Database Migrations
 
 Initialize your database:
 ```bash
@@ -84,6 +84,6 @@ Create a new migration:
 uv run alembic revision --autogenerate -m "description"
 ```
 
-## 📜 License
+## License
 
 This project is licensed under the MIT License.
