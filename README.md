@@ -16,7 +16,7 @@ The easiest way to start a new project is to use `uvx`. No installation or pre-e
 
 ```bash
 # In an empty directory, run:
-uvx fastapi-server-kit
+uvx fastapi-server-kit@latest
 ```
 
 This single command will trigger an **interactive setup**:
@@ -28,14 +28,14 @@ This single command will trigger an **interactive setup**:
 ### CLI Flags (Automation)
 For non-interactive use or CI/CD:
 ```bash
-uvx fastapi-server-kit my-app --db postgres --no-input
+uvx fastapi-server-kit@latest my-app --db postgres --no-input
 ```
 
 ### Alternative Installation
 If you want to add the kit as a dependency to an existing project:
 
 ```bash
-uv add fastapi-server-kit
+uv add fastapi-server-kit@latest
 ```
 
 ## Manual Setup
@@ -43,7 +43,7 @@ If you prefer to clone the repository or use it as a template:
 
 ```bash
 git clone https://github.com/atnatewoshw/fastapi-starter-template
-cd fastapi-starter-template/server
+cd fastapi-starter-template
 ```
 
 ### 2. Configure Environment
@@ -68,17 +68,18 @@ uv run uvicorn app.main:app --reload
 The kit follows a clean, modular directory layout:
 
 ```text
-server/
-├── app/
-│   ├── core/          # Configuration and security
-│   ├── models/        # SQLAlchemy models
-│   ├── repositories/  # Data access layer
-│   ├── routers/       # API endpoints
-│   ├── schemas/       # Pydantic models
-│   └── services/      # Business logic
-├── tests/             # Unit and integration tests
-├── cli.py             # Scaffolding CLI logic
-└── pyproject.toml     # Project dependencies
+fastapi-starter-template/
+├── fastapi_server_kit/  # Packaged CLI + templates
+├── app/                 # FastAPI application
+│   ├── core/            # Configuration and security
+│   ├── models/          # SQLAlchemy models
+│   ├── repositories/    # Data access layer
+│   ├── routers/         # API endpoints
+│   ├── schemas/         # Pydantic models
+│   └── services/        # Business logic
+├── tests/               # Unit and integration tests
+├── pyproject.toml       # Project dependencies
+└── README.md
 ```
 
 ## Database Migrations
