@@ -202,4 +202,8 @@ uv run uvicorn app.main:app --reload
         sys.exit(1)
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\n\n👋 Stopped by user.")
+        sys.exit(0)
