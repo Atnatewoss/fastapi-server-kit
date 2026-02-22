@@ -1,6 +1,6 @@
 [project]
 name = "fastapi-server-kit"
-version = "0.2.0"
+version = "0.2.1"
 description = "A production-grade FastAPI template with support for PostgreSQL, SQLite, and MySQL."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -27,16 +27,10 @@ dependencies = [
 ]
 
 [project.scripts]
-fastapi-server-kit = "cli:main"
+fastapi-server-kit = "fastapi_server_kit.cli:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["app", "tests"]
-include = [
-    "/cli.py",
-    "/README.md",
-    "/.env_example",
-    "/pyproject.toml.template"
-]
+packages = ["fastapi_server_kit"]
 
 [build-system]
 requires = ["hatchling"]
